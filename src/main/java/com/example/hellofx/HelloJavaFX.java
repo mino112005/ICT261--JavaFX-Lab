@@ -27,7 +27,9 @@ public class HelloJavaFX extends Application {
 
         Label provinceLabel = new Label("Province");
         ComboBox<String> provinceBox = new ComboBox<>();
-        provinceBox.getItems().addAll("Central", "Lusaka", "Copperbelt");
+        provinceBox.getItems().addAll("Central", "Copperbelt", "Eastern",
+                "Luapula", "Lusaka", "Muchinga", "Northern",
+                "North-Western", "Southern", "Western");
         provinceBox.setPromptText("Choose a province");
         provinceLabel.setLabelFor(provinceBox);
 

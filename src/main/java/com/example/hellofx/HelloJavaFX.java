@@ -92,7 +92,14 @@ public class HelloJavaFX extends Application {
                 provinceBox, buttons, status, table);
         layout.setPadding(new Insets(15));
 
-        Scene scene = new Scene(layout, 500, 560);
+        Menu fileMenu = new Menu("File");
+        MenuItem closeItem = new MenuItem("Close");
+        closeItem.setOnAction(e -> stage.close());
+        fileMenu.getItems().add(closeItem);
+        MenuBar menuBar = new MenuBar(fileMenu);
+        VBox root = new VBox(menuBar, layout);
+
+        Scene scene = new Scene(root, 500, 560);
         stage.setTitle("My First JavaFX Application - StudentNumber : 202500391");
         stage.setScene(scene);
         stage.show();

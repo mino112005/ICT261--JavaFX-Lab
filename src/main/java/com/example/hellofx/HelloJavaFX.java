@@ -49,6 +49,9 @@ public class HelloJavaFX extends Application {
         provinceCol.setCellValueFactory(new PropertyValueFactory<>("province"));
         table.getColumns().add(nameCol);
         table.getColumns().add(provinceCol);
+        nameCol.prefWidthProperty().bind(table.widthProperty().multiply(0.49));
+        provinceCol.prefWidthProperty().bind(table.widthProperty().multiply(0.49));
+
 
         // 4. Validate input, then add the customer
         saveButton.setOnAction(event -> {

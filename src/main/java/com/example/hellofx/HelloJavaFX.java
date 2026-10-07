@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.geometry.Pos;
 
 public class HelloJavaFX extends Application {
 
@@ -17,7 +18,10 @@ public class HelloJavaFX extends Application {
 
     @Override
     public void start(Stage stage) {
-        Label message = new Label("Welcome, Maximino Phiri!");
+        Label title = new Label("CUSTOMER REGISTRATION FORM");
+        title.setMaxWidth(Double.MAX_VALUE);
+        title.setAlignment(Pos.CENTER);
+        title.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
 
         // 1. Form: name field + province list
         Label nameLabel = new Label("Customer name");
@@ -107,7 +111,7 @@ public class HelloJavaFX extends Application {
         });
 
         HBox buttons = new HBox(10, saveButton, deleteButton, clearButton);
-        VBox layout = new VBox(8, message, nameLabel, nameField, provinceLabel,
+        VBox layout = new VBox(8, title, nameLabel, nameField, provinceLabel,
                 provinceBox, buttons, status, table);
         layout.setPadding(new Insets(15));
 

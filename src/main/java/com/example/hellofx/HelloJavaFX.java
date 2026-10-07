@@ -36,6 +36,7 @@ public class HelloJavaFX extends Application {
         Button saveButton = new Button("Save customer");
         saveButton.setDefaultButton(true);
         Button deleteButton = new Button("Delete selected");
+        Button clearButton = new Button("Clear");
         Label status = new Label();
 
         // 2 & 3. ObservableList + TableView with name and province columns
@@ -87,7 +88,14 @@ public class HelloJavaFX extends Application {
             }
         });
 
-        HBox buttons = new HBox(10, saveButton, deleteButton);
+        clearButton.setOnAction(event -> {
+            nameField.clear();
+            provinceBox.setValue(null);
+            status.setText("");
+            nameField.requestFocus();
+        });
+
+        HBox buttons = new HBox(10, saveButton, deleteButton, clearButton);
         VBox layout = new VBox(8, message, nameLabel, nameField, provinceLabel,
                 provinceBox, buttons, status, table);
         layout.setPadding(new Insets(15));

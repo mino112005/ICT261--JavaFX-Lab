@@ -31,6 +31,13 @@ public class HelloJavaFX extends Application {
                 "Luapula", "Lusaka", "Muchinga", "Northern",
                 "North-Western", "Southern", "Western");
         provinceBox.setPromptText("Choose a province");
+        provinceBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "Choose a province" : item);
+            }
+        });
         provinceLabel.setLabelFor(provinceBox);
 
         Button saveButton = new Button("Save customer");
@@ -42,6 +49,7 @@ public class HelloJavaFX extends Application {
         // 2 & 3. ObservableList + TableView with name and province columns
         TableView<Customer> table = new TableView<>();
         table.setItems(customers);
+        table.setPlaceholder(new Label("No customers yet."));
 
         TableColumn<Customer, String> nameCol = new TableColumn<>("Customer name");
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
